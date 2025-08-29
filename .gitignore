@@ -1,0 +1,12 @@
+/.vs
+/build
+/debug
+/release
+*.qtvscr
+*.sublime-workspace
+*.sublime-project
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+.qmake.stash
