@@ -12,22 +12,22 @@
 #include <QResizeEvent>
 #include <QVector>
 
+// 简易 VS / VSCode 风格菜单条：左到右若溢出则使用 "..."；若一个也放不下则使用 "≡" 汉堡按钮
 class Toolbar : public QWidget
 {
     Q_OBJECT
 public:
     explicit Toolbar(QWidget* parent = nullptr);
 
-    // 便捷添加 Action（带图标/文本）
     QAction* addAction(const QIcon& icon, const QString& text, QObject* recv = nullptr, const char* slot = nullptr);
-    // 添加已有 Action
     void addAction(QAction* action);
-
-    // 新增：添加菜单（返回关联的 QAction，便于后续启用/禁用）
     QAction* addMenu(const QIcon& icon, const QString& text, QMenu* menu);
-
-    // 清空
     void clear();
+
+    int visibleButtonCount() const { return mLastVisibleCount; }
+    int totalActionCount()  const { return mActions.size(); }
+
+    static void applyDarkMenuStyle(QMenu* menu); // 统一暗色样式
 
 protected:
     void resizeEvent(QResizeEvent* event) override;
@@ -40,8 +40,9 @@ private:
     QHBoxLayout* mLayout { nullptr };
     QVector<QAction*> mActions;
     QVector<QToolButton*> mButtons; // 与 mActions 一一对应
-    QToolButton* mOverflowButton { nullptr };
+    QToolButton* mOverflowButton { nullptr }; // 既做溢出又做汉堡
     QMenu* mOverflowMenu { nullptr };
+    int mLastVisibleCount { 0 }; // 最近一次 layout 中正常显示的按钮数量
 };
 
 #endif // TOOLBAR_H

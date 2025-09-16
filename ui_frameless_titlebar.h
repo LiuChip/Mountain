@@ -39,16 +39,33 @@ public:
         frameless_titlebar->resize(1128, 30);
         frameless_titlebar->setMinimumSize(QSize(0, 30));
         frameless_titlebar->setMaximumSize(QSize(16777215, 30));
+        frameless_titlebar->setStyleSheet(QString::fromUtf8("QWidget#frameless_titlebar{background:#1e1e1e;}\n"
+"QLineEdit#lineEdit{background:#2d2d2d;border:1px solid #3c3c3c;border-radius:4px;padding-left:22px;color:#e0e0e0;font-size:12px;}\n"
+"QLineEdit#lineEdit:hover{background:#323232;}\n"
+"QLineEdit#lineEdit:focus{background:#1e1e1e;border:1px solid #007acc;color:#ffffff;}\n"
+"QPushButton#minimizeButton,QPushButton#maximizeButton,QPushButton#exitButton{border:0;padding:0;background:transparent;color:#dcdcdc;}\n"
+"QPushButton#minimizeButton:hover,QPushButton#maximizeButton:hover{background:rgba(255,255,255,0.08);color:#ffffff;}\n"
+"QPushButton#minimizeButton:pressed,QPushButton#maximizeButton:pressed{background:rgba(255,255,255,0.16);}\n"
+"QPushButton#exitButton:hover{background:rgba(232,17,35,0.90);color:#ffffff;}\n"
+"QPushButton#exitButton:pressed{background:rgba(232,17,35,1.00);}\n"
+"QMenu{background:#252526;border:1px solid #3c3c3c;color:#dcdcdc;font-size:12px;}\n"
+"QMenu::separator{height:1px;background:#3c3c3c;margin:4px 0;}\n"
+"QMenu::item{padding:4px 26px 4"
+                        "px 24px;}\n"
+"QMenu::item:selected{background:#094771;color:#ffffff;}\n"
+"QMenu::item:disabled{color:#555;}\n"
+"QMenu::icon{margin-left:4px;margin-right:8px;}"));
         horizontalLayout_2 = new QHBoxLayout(frameless_titlebar);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_2->setContentsMargins(6, 0, 0, 0);
         iconLayout = new QHBoxLayout();
         iconLayout->setSpacing(0);
         iconLayout->setObjectName("iconLayout");
-        iconLayout->setContentsMargins(4, -1, -1, -1);
+        iconLayout->setContentsMargins(0, -1, -1, -1);
         icon = new QLabel(frameless_titlebar);
         icon->setObjectName("icon");
-        icon->setMaximumSize(QSize(15, 15));
+        icon->setMinimumSize(QSize(18, 18));
+        icon->setMaximumSize(QSize(18, 18));
         icon->setPixmap(QPixmap(QString::fromUtf8(":/icon/icon/icon_white.png")));
         icon->setScaledContents(true);
 
@@ -58,12 +75,12 @@ public:
         horizontalLayout_2->addLayout(iconLayout);
 
         toolbarLayout = new QHBoxLayout();
-        toolbarLayout->setSpacing(0);
+        toolbarLayout->setSpacing(8);
         toolbarLayout->setObjectName("toolbarLayout");
         lineEdit = new QLineEdit(frameless_titlebar);
         lineEdit->setObjectName("lineEdit");
-        lineEdit->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-""));
+        lineEdit->setMinimumSize(QSize(240, 22));
+        lineEdit->setMaximumSize(QSize(600, 16777215));
 
         toolbarLayout->addWidget(lineEdit);
 
@@ -75,23 +92,22 @@ public:
         buttonLayout->setObjectName("buttonLayout");
         minimizeButton = new QPushButton(frameless_titlebar);
         minimizeButton->setObjectName("minimizeButton");
-        minimizeButton->setMinimumSize(QSize(0, 20));
-        minimizeButton->setMaximumSize(QSize(16777215, 20));
-        minimizeButton->setStyleSheet(QString::fromUtf8(""));
+        minimizeButton->setMinimumSize(QSize(46, 30));
+        minimizeButton->setMaximumSize(QSize(46, 30));
 
         buttonLayout->addWidget(minimizeButton);
 
         maximizeButton = new QPushButton(frameless_titlebar);
         maximizeButton->setObjectName("maximizeButton");
-        maximizeButton->setMinimumSize(QSize(0, 20));
-        maximizeButton->setMaximumSize(QSize(16777215, 20));
+        maximizeButton->setMinimumSize(QSize(46, 30));
+        maximizeButton->setMaximumSize(QSize(46, 30));
 
         buttonLayout->addWidget(maximizeButton);
 
         exitButton = new QPushButton(frameless_titlebar);
         exitButton->setObjectName("exitButton");
-        exitButton->setMinimumSize(QSize(0, 20));
-        exitButton->setMaximumSize(QSize(16777215, 20));
+        exitButton->setMinimumSize(QSize(46, 30));
+        exitButton->setMaximumSize(QSize(46, 30));
 
         buttonLayout->addWidget(exitButton);
 
@@ -108,6 +124,7 @@ public:
     {
         frameless_titlebar->setWindowTitle(QCoreApplication::translate("frameless_titlebar", "Form", nullptr));
         icon->setText(QString());
+        lineEdit->setText(QString());
         minimizeButton->setText(QString());
         maximizeButton->setText(QString());
         exitButton->setText(QString());

@@ -35,22 +35,25 @@ public:
         if (general->objectName().isEmpty())
             general->setObjectName("general");
         general->resize(871, 537);
-        general->setStyleSheet(QString::fromUtf8(""));
         verticalLayout_5 = new QVBoxLayout(general);
         verticalLayout_5->setObjectName("verticalLayout_5");
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
         mainwindow_widget = new QWidget(general);
         mainwindow_widget->setObjectName("mainwindow_widget");
         verticalLayout_4 = new QVBoxLayout(mainwindow_widget);
         verticalLayout_4->setObjectName("verticalLayout_4");
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
         titlebar_widget = new QWidget(mainwindow_widget);
         titlebar_widget->setObjectName("titlebar_widget");
         titlebar_widget->setMaximumSize(QSize(16777215, 30));
-        titlebar_widget->setStyleSheet(QString::fromUtf8("background: black"));
+        titlebar_widget->setStyleSheet(QString::fromUtf8("background:#1e1e1e;"));
         verticalLayout_3 = new QVBoxLayout(titlebar_widget);
         verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         basicLayout = new QHBoxLayout();
         basicLayout->setSpacing(0);
         basicLayout->setObjectName("basicLayout");
+        basicLayout->setContentsMargins(0, 0, 0, 0);
 
         verticalLayout_3->addLayout(basicLayout);
 
@@ -61,6 +64,7 @@ public:
         content_widget->setObjectName("content_widget");
         verticalLayout_2 = new QVBoxLayout(content_widget);
         verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         contentVLayout = new QVBoxLayout();
         contentVLayout->setObjectName("contentVLayout");
 
